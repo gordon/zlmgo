@@ -1,3 +1,4 @@
+// Package zlmgo provides Go bindings to the Zen License Manager (ZLM).
 package zlmgo
 
 /*
@@ -20,6 +21,7 @@ type License struct {
 	l *C.ZlmLicense
 }
 
+// LicenseNew returns a new license object (panics if not enough memory is available).
 func LicenseNew() *License {
 	license := &License{C.zlm_license_new(C.zlmgo_errbuf)}
 	if license.l == nil {
