@@ -33,6 +33,7 @@ func LicenseNew() *License {
 
 func (license *License) Get(product, version, argv0, path, license_string string) error {
 	var c_product, c_version, c_argv0, c_path, c_license_string *C.char
+	// convert argument to C strings
 	if product != "" {
 		c_product = C.CString(product)
 	}
@@ -48,8 +49,8 @@ func (license *License) Get(product, version, argv0, path, license_string string
 	if license_string != "" {
 		c_license_string = C.CString(license_string)
 	}
-	if C.zlm_license_get(license.l, c_product, c_version, c_argv0, c_path, c_license_string, C.zlmgo_errbuf) !=
-		C.ZLM_OK {
+	// call actual method
+	if C.zlm_license_get(license.l, c_product, c_version, c_argv0, c_path, c_license_string, C.zlmgo_errbuf) != C.ZLM_OK {
 		return errors.New(C.GoString(C.zlmgo_errbuf))
 	}
 	return nil
