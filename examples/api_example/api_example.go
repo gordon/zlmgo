@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	l := zlm.LicenseNew()
+	l := zlmgo.LicenseNew()
 	if err := l.Get("My Product", "1.0", os.Args[0], ".", ""); err != nil {
 		log.Fatal(err)
 	}

@@ -1,4 +1,4 @@
-package zlm
+package zlmgo
 
 /*
 #cgo CFLAGS: -I/usr/local/include
