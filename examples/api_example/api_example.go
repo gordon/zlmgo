@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/gordon/zlmgo"
+	"github.com/wikena/zlmgo"
 	"log"
 	"os"
 )
