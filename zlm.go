@@ -5,6 +5,7 @@ package zlmgo
 #cgo CFLAGS: -I/usr/local/include
 #cgo LDFLAGS: /usr/local/lib/libzlm.a
 
+#include <stdlib.h>
 #include <zlm.h>
 
 char zlmgo_errbuf_array[ZLM_ERRBUF];
@@ -89,6 +90,13 @@ func (license *License) Next() error {
 
 func Version() string {
 	return C.GoString(C.zlm_version())
+}
+
+func HostidJSON() string {
+	cs := C.zlm_hostid_json()
+	hostid := C.GoString(cs)
+	C.free(cs)
+	return hostid
 }
 
 func (license *License) CheckA() {
