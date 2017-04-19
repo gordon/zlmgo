@@ -37,25 +37,25 @@ func LicenseNew() *License {
 // Get wraps zlm_license_get(), see
 // https://zenlicensemanager.com/documentation/#API
 func (license *License) Get(product, version, argv0, path, licenseString string) error {
-	var c_product, c_version, c_argv0, c_path, c_license_string *C.char
+	var cProduct, cVersion, cArgv0, cPath, cLicenseString *C.char
 	// convert argument to C strings
 	if product != "" {
-		c_product = C.CString(product)
+		cProduct = C.CString(product)
 	}
 	if version != "" {
-		c_version = C.CString(version)
+		cVersion = C.CString(version)
 	}
 	if argv0 != "" {
-		c_argv0 = C.CString(argv0)
+		cArgv0 = C.CString(argv0)
 	}
 	if path != "" {
-		c_path = C.CString(path)
+		cPath = C.CString(path)
 	}
 	if licenseString != "" {
-		c_license_string = C.CString(licenseString)
+		cLicenseString = C.CString(licenseString)
 	}
 	// call actual method
-	if C.zlm_license_get(license.l, c_product, c_version, c_argv0, c_path, c_license_string, C.zlmgo_errbuf) != C.ZLM_OK {
+	if C.zlm_license_get(license.l, cProduct, cVersion, cArgv0, cPath, cLicenseString, C.zlmgo_errbuf) != C.ZLM_OK {
 		return errors.New(C.GoString(C.zlmgo_errbuf))
 	}
 	return nil
