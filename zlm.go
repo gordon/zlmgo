@@ -95,6 +95,12 @@ func (license *License) Userdata() string {
 	return C.GoString(C.zlm_license_userdata(license.l))
 }
 
+// UserdataUnescaped wraps zlm_license_userdata_unescaped(), see
+// https://zenlicensemanager.com/documentation/#API
+func (license *License) UserdataUnescaped() string {
+	return C.GoString(C.zlm_license_userdata_unescaped(license.l))
+}
+
 // Next wraps zlm_license_next(), see
 // https://zenlicensemanager.com/documentation/#API
 func (license *License) Next() error {
