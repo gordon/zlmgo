@@ -110,6 +110,15 @@ func (license *License) Next() error {
 	return nil
 }
 
+// NotExpired wraps zlm_license_not_expired(), see
+// https://zenlicensemanager.com/documentation/#API
+func (license *License) NotExpired() error {
+	if C.zlm_license_not_expired(license.l, C.zlmgo_errbuf) != C.ZLM_OK {
+		return errors.New(C.GoString(C.zlmgo_errbuf))
+	}
+	return nil
+}
+
 // Version wraps zlm_version(), see
 // https://zenlicensemanager.com/documentation/#API
 func Version() string {
