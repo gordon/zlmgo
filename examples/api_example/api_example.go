@@ -1,9 +1,10 @@
 package main
 
 import (
-	"github.com/wikena/zlmgo"
 	"log"
 	"os"
+
+	"github.com/wikena/zlmgo"
 )
 
 func main() {
