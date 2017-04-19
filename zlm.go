@@ -118,7 +118,7 @@ func HostidJSON() (string, error) {
 		return "", errors.New(C.GoString(C.zlmgo_errbuf))
 	}
 	hostid := C.GoString(cs)
-	C.free(unsafe.Pointer(cs))
+	C.zlm_free(unsafe.Pointer(cs))
 	return hostid, nil
 }
 
