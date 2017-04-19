@@ -65,26 +65,38 @@ func (license *License) free() {
 	C.zlm_license_free(license.l)
 }
 
+// Product wraps zlm_license_product(), see
+// https://zenlicensemanager.com/documentation/#API
 func (license *License) Product() string {
 	return C.GoString(C.zlm_license_product(license.l))
 }
 
+// Expiry wraps zlm_license_expiry(), see
+// https://zenlicensemanager.com/documentation/#API
 func (license *License) Expiry() string {
 	return C.GoString(C.zlm_license_expiry(license.l))
 }
 
+// ExpiryDays wraps zlm_license_expiry_days(), see
+// https://zenlicensemanager.com/documentation/#API
 func (license *License) ExpiryDays() int {
 	return int(C.zlm_license_expiry_days(license.l))
 }
 
+// Customer wraps zlm_license_customer(), see
+// https://zenlicensemanager.com/documentation/#API
 func (license *License) Customer() string {
 	return C.GoString(C.zlm_license_customer(license.l))
 }
 
+// Userdata wraps zlm_license_userdata(), see
+// https://zenlicensemanager.com/documentation/#API
 func (license *License) Userdata() string {
 	return C.GoString(C.zlm_license_userdata(license.l))
 }
 
+// Next wraps zlm_license_next(), see
+// https://zenlicensemanager.com/documentation/#API
 func (license *License) Next() error {
 	if C.zlm_license_next(license.l, C.zlmgo_errbuf) != C.ZLM_OK {
 		return errors.New(C.GoString(C.zlmgo_errbuf))
@@ -92,10 +104,14 @@ func (license *License) Next() error {
 	return nil
 }
 
+// Version wraps zlm_version(), see
+// https://zenlicensemanager.com/documentation/#API
 func Version() string {
 	return C.GoString(C.zlm_version())
 }
 
+// HostidJSON wraps zlm_hostid_json(), see
+// https://zenlicensemanager.com/documentation/#API
 func HostidJSON() (string, error) {
 	cs := C.zlm_hostid_json(C.zlmgo_errbuf)
 	if cs == nil {
@@ -106,74 +122,110 @@ func HostidJSON() (string, error) {
 	return hostid, nil
 }
 
+// CheckA wraps zlm_license_check_a(), see
+// https://zenlicensemanager.com/documentation/#API
 func (license *License) CheckA() {
 	C.zlm_license_check_a(license.l)
 }
 
+// CheckB wraps zlm_license_check_b(), see
+// https://zenlicensemanager.com/documentation/#API
 func (license *License) CheckB() {
 	C.zlm_license_check_b(license.l)
 }
 
+// CheckC wraps zlm_license_check_c(), see
+// https://zenlicensemanager.com/documentation/#API
 func (license *License) CheckC() {
 	C.zlm_license_check_c(license.l)
 }
 
+// CheckD wraps zlm_license_check_d(), see
+// https://zenlicensemanager.com/documentation/#API
 func (license *License) CheckD() {
 	C.zlm_license_check_d(license.l)
 }
 
+// CheckE wraps zlm_license_check_e(), see
+// https://zenlicensemanager.com/documentation/#API
 func (license *License) CheckE() {
 	C.zlm_license_check_e(license.l)
 }
 
+// CheckF wraps zlm_license_check_f(), see
+// https://zenlicensemanager.com/documentation/#API
 func (license *License) CheckF() {
 	C.zlm_license_check_f(license.l)
 }
 
+// CheckG wraps zlm_license_check_g(), see
+// https://zenlicensemanager.com/documentation/#API
 func (license *License) CheckG() {
 	C.zlm_license_check_g(license.l)
 }
 
+// CheckH wraps zlm_license_check_h(), see
+// https://zenlicensemanager.com/documentation/#API
 func (license *License) CheckH() {
 	C.zlm_license_check_h(license.l)
 }
 
+// CheckI wraps zlm_license_check_i(), see
+// https://zenlicensemanager.com/documentation/#API
 func (license *License) CheckI() {
 	C.zlm_license_check_i(license.l)
 }
 
+// CheckJ wraps zlm_license_check_j(), see
+// https://zenlicensemanager.com/documentation/#API
 func (license *License) CheckJ() {
 	C.zlm_license_check_j(license.l)
 }
 
+// CheckK wraps zlm_license_check_k(), see
+// https://zenlicensemanager.com/documentation/#API
 func (license *License) CheckK() {
 	C.zlm_license_check_k(license.l)
 }
 
+// CheckL wraps zlm_license_check_l(), see
+// https://zenlicensemanager.com/documentation/#API
 func (license *License) CheckL() {
 	C.zlm_license_check_l(license.l)
 }
 
+// CheckM wraps zlm_license_check_m(), see
+// https://zenlicensemanager.com/documentation/#API
 func (license *License) CheckM() {
 	C.zlm_license_check_m(license.l)
 }
 
+// CheckN wraps zlm_license_check_n(), see
+// https://zenlicensemanager.com/documentation/#API
 func (license *License) CheckN() {
 	C.zlm_license_check_n(license.l)
 }
 
+// CheckO wraps zlm_license_check_o(), see
+// https://zenlicensemanager.com/documentation/#API
 func (license *License) CheckO() {
 	C.zlm_license_check_o(license.l)
 }
 
+// CheckP wraps zlm_license_check_p(), see
+// https://zenlicensemanager.com/documentation/#API
 func (license *License) CheckP() {
 	C.zlm_license_check_p(license.l)
 }
 
+// CheckQ wraps zlm_license_check_q(), see
+// https://zenlicensemanager.com/documentation/#API
 func (license *License) CheckQ() {
 	C.zlm_license_check_q(license.l)
 }
 
+// CheckR wraps zlm_license_check_r(), see
+// https://zenlicensemanager.com/documentation/#API
 func (license *License) CheckR() {
 	C.zlm_license_check_r(license.l)
 }
