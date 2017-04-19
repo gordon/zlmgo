@@ -19,6 +19,7 @@ import (
 	"unsafe"
 )
 
+// License wraps a ZLM license object.
 type License struct {
 	l *C.ZlmLicense
 }
@@ -33,6 +34,8 @@ func LicenseNew() *License {
 	return license
 }
 
+// Get wraps zlm_license_get(), see
+// https://zenlicensemanager.com/documentation/#API
 func (license *License) Get(product, version, argv0, path, licenseString string) error {
 	var c_product, c_version, c_argv0, c_path, c_license_string *C.char
 	// convert argument to C strings
