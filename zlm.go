@@ -16,6 +16,7 @@ import "C"
 import (
 	"errors"
 	"runtime"
+	"unsafe"
 )
 
 type License struct {
@@ -92,11 +93,14 @@ func Version() string {
 	return C.GoString(C.zlm_version())
 }
 
-func HostidJSON() string {
-	cs := C.zlm_hostid_json()
+func HostidJSON() (string, error) {
+	cs := C.zlm_hostid_json(C.zlmgo_errbuf)
+	if cs == nil {
+		return "", errors.New(C.GoString(C.zlmgo_errbuf))
+	}
 	hostid := C.GoString(cs)
-	C.free(cs)
-	return hostid
+	C.free(unsafe.Pointer(cs))
+	return hostid, nil
 }
 
 func (license *License) CheckA() {
