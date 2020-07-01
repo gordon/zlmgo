@@ -41,7 +41,7 @@ func (license *License) Get(product, version, argv0, path, licenseString string)
 		cProduct, cVersion, cArgv0, cPath, cLicenseString *C.char
 		err                                               error
 	)
-	// convert argument to C strings
+	// convert arguments to C strings
 	if product != "" {
 		cProduct = C.CString(product)
 	}
